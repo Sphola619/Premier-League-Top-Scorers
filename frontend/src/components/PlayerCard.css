@@ -1,0 +1,21 @@
+/* Styles for the player card container */
+.player-card {
+  border: 1px solid #ccc; /* Light gray border */
+  padding: 20px; /* Padding inside the card */
+  margin-top: 20px; /* Space above the card */
+  border-radius: 10px; /* Rounded corners */
+  background-color: #f9f9f9; /* Light gray background color */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Styles for the player name */
+.player-card h2 {
+  margin: 0; /* Remove default margin */
+  font-size: 24px; /* Larger font size for the name */
+}
+
+/* Styles for the player details */
+.player-card p {
+  margin: 5px 0; /* Space between paragraphs */
+  font-size: 18px; /* Font size for the details */
+}

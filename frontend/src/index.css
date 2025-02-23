@@ -1,0 +1,12 @@
+/* Global styles for the body element */
+body {
+  margin: 0; /* Remove default margin */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif; /* Set a system font stack for better performance and consistency */
+  -webkit-font-smoothing: antialiased; /* Improve font rendering on WebKit browsers */
+  -moz-osx-font-smoothing: grayscale; /* Improve font rendering on macOS */
+}
+
+/* Global styles for the code element */
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace; /* Set a monospaced font stack for code elements */
+}
