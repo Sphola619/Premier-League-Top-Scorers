@@ -4,7 +4,7 @@
 
 # Ignore .env files
 /backend/.env
-/frontend/.env
+
 
 # Ignore build output
 /frontend/build/
