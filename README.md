@@ -61,45 +61,6 @@ This is a full-stack application that displays the top scorers in the Premier Le
    The frontend development server will start on http://localhost:3000
 
 
-**Project Structure**
-
-**Backend**
-
-backend/
-├── controllers/
-│   └── scorerController.js
-├── routes/
-│   └── scorerRoutes.js
-├── app.js
-├── server.js
-├── .env
-├── sample_env
-├── package.json
-└── node_modules/
-
-**Frontend**
-
-frontend/
-├── public/
-│   ├── premier-league-background-image.webp
-│   ├── favicon.ico
-│   ├── index.html
-│   ├── logo192.png
-│   ├── logo512.png
-│   ├── manifest.json
-│   └── robots.txt
-├── src/
-│   ├── components/
-│   │   ├── PlayerCard.js
-│   │   └── PlayerCard.css
-│   ├── App.css
-│   ├── App.js
-│   ├── index.css
-│   ├── index.js
-├── package.json
-├── node_modules/
-└── build/
-
 **Usage**
 
    - Open your browser and navigate to http://localhost:3000
