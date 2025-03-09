@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/2ca3703c-5248-4886-a051-2aaca16ab57d)
+
 # Premier League Top Scorers App
 
 This is a full-stack application that displays the top scorers in the Premier League. The backend is built with Node.js and Express, and the frontend is built with React. The application fetches data from the Football-Data.org API.
