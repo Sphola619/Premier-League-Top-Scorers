@@ -19,7 +19,7 @@ This is a full-stack application that displays the top scorers in the Premier Le
 
 1. **Navigate to the backend directory**:
    ```sh
-   cd /c:/Users/201614468/Downloads/Projects/top-premier-league-scorers/backend
+   cd /top-premier-league-scorers/backend
 
 2. **Install dependencies**:
    
@@ -31,7 +31,7 @@ This is a full-stack application that displays the top scorers in the Premier Le
    - Sign up for an account if you don't have one
    - Generate an API key
 
-4. **Creat a .env file in the backend directory based on the sample_env file and add your API key**:
+4. **Create a .env file in the backend directory based on the sample_env file and add your API key**:
 
    - cp sample_env .env
 
@@ -65,7 +65,7 @@ This is a full-stack application that displays the top scorers in the Premier Le
 
    - Open your browser and navigate to http://localhost:3000
    - Enter a Premier League player's name in the search input to get their goals, position,  club, and date of birth.
-   - The backend will the return the player's details only if they are in the top 10 scorers list this season
+   - The backend will the return the player's details only if they are in the top 10 scorers list this season.
 
 **License**
 
