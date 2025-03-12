@@ -1,60 +1,78 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import PlayerCard from './components/PlayerCard';
 import axios from 'axios';
+import premierLeagueImg from './premier-league-background-image.webp';
+import JesusImg from './gabriel-jesus.webp';
+import premierLeague4Img from './premier-league-top-four.webp';
 
 function App() {
-  // State variables to manage player name input, player data, and error messages
+  // State for player search functionality
   const [playerName, setPlayerName] = useState('');
   const [playerData, setPlayerData] = useState(null);
   const [error, setError] = useState('');
 
+  // State for background animation
+  const [bgIndex, setBgIndex] = useState(0);
+  const backgrounds = [premierLeagueImg, JesusImg, premierLeague4Img];
+
+  // Effect for background animation
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBgIndex((prevIndex) => (prevIndex + 1) % backgrounds.length);
+    }, 5000); // Change every 5 seconds
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   // Function to handle the search operation
   const handleSearch = async () => {
-    setError(''); // Clear any previous error messages
-    setPlayerData(null); // Clear any previous player data
+    setError(''); // Clear previous errors
+    setPlayerData(null); // Clear previous player data
     try {
-      // Make a GET request to the backend API to fetch top scorers
       const response = await axios.get('http://localhost:5000/api/scorers');
-      // Find the player in the response data that matches the entered player name
-      const player = response.data.find(scorer => scorer.player.name.toLowerCase() === playerName.toLowerCase());
+      const player = response.data.find(scorer =>
+        scorer.player.name.toLowerCase() === playerName.toLowerCase()
+      );
       if (player) {
-        // Set the player data if the player is found
         setPlayerData({
           name: player.player.name,
           goals: player.goals,
           position: response.data.indexOf(player) + 1,
           club: player.team.name,
-          dateOfBirth: player.player.dateOfBirth // Add date of birth
+          dateOfBirth: player.player.dateOfBirth,
         });
       } else {
-        // Set an error message if the player is not found
         setError('Player not found.');
       }
     } catch (error) {
-      // Set an error message if there is an issue fetching data
       setError('Error fetching data.');
     }
   };
 
+  // Inline styles for the App div with dynamic background
+  const appStyle = {
+    backgroundImage: `url(${backgrounds[bgIndex]})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    height: '100vh',
+    textAlign: 'center',
+    padding: '20px',
+    color: 'black',
+    transition: 'background-image 1s ease-in-out', // Smooth transition between images
+  };
+
   return (
-    <div className="App" style={{ 
-      backgroundImage: `url('/premier-league-background-image.webp')`, // Set background image
-      backgroundSize: 'cover', 
-      backgroundPosition: 'center',
-      height: '100vh',
-      color: 'black'
-    }}>
+    <div className="App" style={appStyle}>
       <h1>Premier League Top Scorers</h1>
       <input
         type="text"
         placeholder="Enter player name"
         value={playerName}
-        onChange={(e) => setPlayerName(e.target.value)} // Update player name state on input change
+        onChange={(e) => setPlayerName(e.target.value)}
       />
-      <button onClick={handleSearch}>Search</button> {/* Trigger search on button click */}
-      {error && <p className="error">{error}</p>} {/* Display error message if any */}
-      {playerData && <PlayerCard player={playerData} />} {/* Display player data if available */}
+      <button onClick={handleSearch}>Search</button>
+      {error && <p className="error">{error}</p>}
+      {playerData && <PlayerCard player={playerData} />}
     </div>
   );
 }
