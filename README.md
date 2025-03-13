@@ -1,4 +1,5 @@
-![image](https://github.com/user-attachments/assets/2ca3703c-5248-4886-a051-2aaca16ab57d)
+![image](https://github.com/user-attachments/assets/88edff0a-cb02-45cb-826f-b8b629a88c69)
+
 
 # Premier League Top Scorers App
 
