@@ -3,8 +3,11 @@ import './App.css';
 import PlayerCard from './components/PlayerCard';
 import axios from 'axios';
 import premierLeagueImg from './premier-league-background-image.webp';
-import JesusImg from './gabriel-jesus.webp';
 import premierLeague4Img from './premier-league-top-four.webp';
+import moSalahImg from './mohamed-salah.webp';
+import colePalmerImg from './cole-palmer.webp';
+import brunoFernandesImg from './bruno-fernandes.jpg';
+import erlingHaalandImg from './erling-haaland.webp';
 
 function App() {
   // State for player search functionality
@@ -14,7 +17,7 @@ function App() {
 
   // State for background animation
   const [bgIndex, setBgIndex] = useState(0);
-  const backgrounds = [premierLeagueImg, JesusImg, premierLeague4Img];
+  const backgrounds = [premierLeagueImg, premierLeague4Img, moSalahImg, colePalmerImg, brunoFernandesImg, erlingHaalandImg];
 
   // Effect for background animation
   useEffect(() => {

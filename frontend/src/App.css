@@ -1,3 +1,12 @@
+h1 {
+  color: black; /* Text color */
+  text-shadow: 
+    -1px -1px 0 #fff,  
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+    1px 1px 0 #fff; /* White outline */
+}
+
 /* App.css */
 .App input {
   padding: 10px;
