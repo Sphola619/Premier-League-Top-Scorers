@@ -10,29 +10,26 @@ import brunoFernandesImg from './bruno-fernandes.jpg';
 import erlingHaalandImg from './erling-haaland.webp';
 
 function App() {
-  // State for player search functionality
   const [playerName, setPlayerName] = useState('');
   const [playerData, setPlayerData] = useState(null);
   const [error, setError] = useState('');
-
-  // State for background animation
   const [bgIndex, setBgIndex] = useState(0);
+
   const backgrounds = [premierLeagueImg, premierLeague4Img, moSalahImg, colePalmerImg, brunoFernandesImg, erlingHaalandImg];
 
-  // Effect for background animation
   useEffect(() => {
     const interval = setInterval(() => {
       setBgIndex((prevIndex) => (prevIndex + 1) % backgrounds.length);
-    }, 5000); // Change every 5 seconds
-    return () => clearInterval(interval); // Cleanup on unmount
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
-  // Function to handle the search operation
   const handleSearch = async () => {
-    setError(''); // Clear previous errors
-    setPlayerData(null); // Clear previous player data
+    setError('');
+    setPlayerData(null);
     try {
-      const response = await axios.get('http://localhost:5000/api/scorers');
+      // Replace localhost with your backend deployment URL
+      const response = await axios.get('https://your-backend-deployed-url.com/api/scorers');
       const player = response.data.find(scorer =>
         scorer.player.name.toLowerCase() === playerName.toLowerCase()
       );
@@ -52,7 +49,6 @@ function App() {
     }
   };
 
-  // Inline styles for the App div with dynamic background
   const appStyle = {
     backgroundImage: `url(${backgrounds[bgIndex]})`,
     backgroundSize: 'cover',
@@ -61,7 +57,7 @@ function App() {
     textAlign: 'center',
     padding: '20px',
     color: 'black',
-    transition: 'background-image 1s ease-in-out', // Smooth transition between images
+    transition: 'background-image 1s ease-in-out',
   };
 
   return (
