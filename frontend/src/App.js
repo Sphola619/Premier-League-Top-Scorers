@@ -29,7 +29,7 @@ function App() {
     setPlayerData(null);
     try {
       // Replace localhost with your backend deployment URL
-      const response = await axios.get('https://your-backend-deployed-url.com/api/scorers');
+      const response = await axios.get('https://premier-league-top-scorers.onrender.com');
       const player = response.data.find(scorer =>
         scorer.player.name.toLowerCase() === playerName.toLowerCase()
       );
