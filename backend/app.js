@@ -1,4 +1,3 @@
-// filepath: /c:/Users/201614468/Downloads/Projects/top-premier-league-scorers/backend/app.js
 // Load environment variables from .env file
 require('dotenv').config();
 
@@ -14,8 +13,10 @@ const scorerRoutes = require('./routes/scorerRoutes');
 // Create an Express application
 const app = express();
 
-// Enable CORS
-app.use(cors());
+// Enable CORS only for your deployed frontend
+app.use(cors({
+  origin: 'https://premier-league-top-scorers.vercel.app'
+}));
 
 // Enable JSON parsing for incoming requests
 app.use(express.json());
